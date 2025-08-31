@@ -21,7 +21,6 @@ func (s *Service) ListTasksByUser(uid uint32) ([]Task, error) { return s.repo.Li
 
 func (s *Service) UpdateTask(id uint32, title string, isDone bool) (*Task, error) {
 	t := &Task{ID: id}
-	// загрузим текущую, чтобы сохранить остальные поля как есть
 	cur, err := s.repo.GetByID(id)
 	if err != nil {
 		return nil, err
